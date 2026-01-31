@@ -16,7 +16,7 @@ export default function SettingTrendsSection() {
             className="space-y-4 sm:space-y-6 max-w-4xl text-center"
           >
             <h2 className="font-display text-2xl sm:text-2xl md:text-3xl lg:text-3xl xl:text-4xl 2xl:text-5xl text-slate-900">
-              Setting <span className="text-primary-yellow">Trends</span>
+              Setting Trends
             </h2>
             <div className="space-y-3 sm:space-y-4 text-xs sm:text-xs md:text-sm lg:text-sm xl:text-base 2xl:text-lg leading-relaxed text-slate-700">
               <p>

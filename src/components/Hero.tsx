@@ -14,6 +14,7 @@ import {
   Factory,
   ArrowRight,
   Phone,
+  Wind,
 } from "lucide-react";
 import Link from "next/link";
 
@@ -125,6 +126,24 @@ const heroSlides = [
     ],
     ctaText: "Learn More",
     ctaLink: "/products/lxc-water",
+  },
+  {
+    src: "/images/IAQ-SENSOR.png",
+    alt: "VIR-IAQ-6-Series Indoor Air Quality Sensor",
+    badge: "Comprehensive Air Quality Monitoring",
+    title: "VIR-IAQ-6-Series Indoor Air Quality Sensor",
+    subtitle: "Multi Sensor Option for Comprehensive Air Quality Monitoring",
+    description:
+      "The VIR-IAQ-6-Series Indoor Air Quality sensor offers multiple sensor options for comprehensive air quality monitoring. This series provides advanced monitoring capabilities for various air quality parameters.",
+    icon: Wind,
+    features: [
+      "Multi-sensor configuration",
+      "Comprehensive air quality monitoring",
+      "Advanced sensor technology",
+      "Flexible sensor options",
+    ],
+    ctaText: "Learn More",
+    ctaLink: "/products/vir-iaq-6",
   },
 ];
 

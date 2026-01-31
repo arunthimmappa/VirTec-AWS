@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ProductDetailPage from "@/components/product-components/ProductDetailPage";
 import { getProductBySlug, getAllProductSlugs } from "@/lib/products";
+import { generateBaseMetadata, generateBreadcrumbSchema, generateProductSchema } from "@/lib/seo";
 
 interface PageParams {
   slug: string;
@@ -26,14 +27,25 @@ export async function generateMetadata({
   }
 
   const url = `/products/${slug}`;
+  const categoryName = product.category[0] === "flow" ? "Flow Meter" :
+                       product.category[0] === "heat" ? "Heat Meter" :
+                       product.category[0] === "vsd" ? "Variable Speed Drive" :
+                       product.category[0] === "iaq" ? "IAQ Sensor" : "Product";
 
-  return {
+  return generateBaseMetadata({
     title: `${product.title} - ${product.subtitle} | Virtec`,
     description: product.description,
-    alternates: {
-      canonical: url,
-    },
-  };
+    path: url,
+    image: product.image,
+    keywords: [
+      product.title,
+      product.subtitle,
+      categoryName,
+      ...product.category.map(cat => cat === "flow" ? "flow meter" : cat === "heat" ? "heat meter" : cat === "vsd" ? "VSD" : cat === "iaq" ? "IAQ sensor" : cat),
+      "Virtec products",
+      "precision measurement",
+    ],
+  });
 }
 
 export async function generateStaticParams() {
@@ -69,8 +81,38 @@ export default async function ProductPage({
     })),
   } : null;
 
+  // Build Product Schema for SEO
+  const categoryName = product.category[0] === "flow" ? "Flow Meter" :
+                       product.category[0] === "heat" ? "Heat Meter" :
+                       product.category[0] === "vsd" ? "Variable Speed Drive" :
+                       product.category[0] === "iaq" ? "IAQ Sensor" : "Product";
+
+  const productSchema = generateProductSchema({
+    name: `${product.title} - ${product.subtitle}`,
+    description: product.description,
+    image: product.image,
+    category: categoryName,
+  });
+
+  // Build Breadcrumb Schema
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: "Home", url: "/" },
+    { name: "Products", url: "/products" },
+    { name: product.title, url: `/products/${slug}` },
+  ]);
+
   return (
     <>
+      {/* Inject Product Schema for SEO */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
+      />
+      {/* Inject Breadcrumb Schema for SEO */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       {/* Inject FAQ Schema for SEO */}
       {faqSchema && (
         <script

@@ -65,7 +65,7 @@ export const products: Product[] = [
       "Reliable signal processing and flow calculation",
       "Clear display and output signals"
     ],
-    brochurePath: "/catalogs/VIR-800 ELECTRO MAGNETIC FLOW METER ONLY-24sept.pdf",
+    brochurePath: "/catalogs/VIR-800 ELECTRO MAGNETIC 26128 .pdf",
     faqs: [
       {
         question: "What industries can use the VIR-800 Electromagnetic Flow Meter?",
@@ -98,7 +98,7 @@ export const products: Product[] = [
       "Reliable and accurate flow measurement",
       "Suitable for various industrial applications"
     ],
-    // Missing catalog: add VIR-INSRT / insertion EM catalog to /public/catalogs/ when ready
+    brochurePath: "/catalogs/VIR-800 ELECTRO MAGNETIC 26128 .pdf",
     faqs: []
   },
   {
@@ -114,7 +114,7 @@ export const products: Product[] = [
       "Ultrasonic technology for accurate readings",
       "Remote version available"
     ],
-    brochurePath: "/catalogs/VIR-850-ULTRASONIC-Remote version-25603.pdf",
+    brochurePath: "/catalogs/VIR-850-ULTRASONIC-FLOW &HEAT 26127.pdf",
     faqs: []
   },
   {
@@ -130,7 +130,7 @@ export const products: Product[] = [
       "Non-invasive measurement technology",
       "Flexible for various pipe sizes"
     ],
-    brochurePath: "/catalogs/VIR-832-insertion25103.pdf",
+    brochurePath: "/catalogs/VIR-832M-UF-INSRT-26128.pdf",
     faqs: []
   },
   {
@@ -147,7 +147,7 @@ export const products: Product[] = [
       "Easy installation and removal",
       "Suitable for temporary or permanent use"
     ],
-    brochurePath: "/catalogs/VIR-832-VIR-832M-CLAMP ON-25818.PDF",
+    brochurePath: "/catalogs/VIR-832M-CLAMP ON-6128.pdf",
     faqs: []
   },
   {
@@ -167,7 +167,7 @@ export const products: Product[] = [
       "Microprocessor technology for advanced processing",
       "Suitable for water as heat/cool bearing medium"
     ],
-    brochurePath: "/catalogs/LXC SERIES ULTRASONIC-24B19.pdf",
+    brochurePath: "/catalogs/Virtec-LXC-Water-Meter.pdf",
     faqs: [
       {
         question: "What makes the LXC Series flow meter accurate?",
@@ -203,7 +203,7 @@ export const products: Product[] = [
       "IP-65, battery operated (6 or 16 years)",
       "Flow part with integrated temp sensor"
     ],
-    brochurePath: "/catalogs/LXC SERIES ULTRASONIC-24B19.pdf",
+    brochurePath: "/catalogs/LXC SERIES-HEAT METER-26128.pdf",
     faqs: []
   },
   {
@@ -220,7 +220,7 @@ export const products: Product[] = [
       "Accurate thermal energy measurement",
       "Pt100/PT500 temperature sensor"
     ],
-    brochurePath: "/catalogs/VIR-850-ULTRASONIC-Remote version-25603.pdf",
+    brochurePath: "/catalogs/VIR-850-ULTRASONIC-FLOW &HEAT 26127.pdf",
     faqs: []
   },
   {
@@ -236,7 +236,7 @@ export const products: Product[] = [
       "Ultrasonic heat measurement",
       "Non-invasive, flexible for various pipe sizes"
     ],
-    brochurePath: "/catalogs/VIR-832-insertion25103.pdf",
+    brochurePath: "/catalogs/VIR-832M-UF-INSRT-26128.pdf",
     faqs: []
   },
   {
@@ -252,7 +252,7 @@ export const products: Product[] = [
       "Pt100/PT500/PT-1000 temperature sensor options",
       "VIR-832 M and VIR-DX-900"
     ],
-    brochurePath: "/catalogs/VIR-832-VIR-832M-CLAMP ON-25818.PDF",
+    brochurePath: "/catalogs/VIR-832M-CLAMP ON-6128.pdf",
     faqs: []
   },
   {
@@ -269,7 +269,7 @@ export const products: Product[] = [
       "Factory-tested and calibrated",
       "Well-structured programming menu"
     ],
-    brochurePath: "/catalogs/VIR-800 ELECTRO MAGNETIC FLOW METER ONLY-24sept.pdf",
+    brochurePath: "/catalogs/VIR-800 ELECTRO MAGNETIC 26128 .pdf",
     faqs: []
   },
   {
@@ -285,7 +285,7 @@ export const products: Product[] = [
       "Easy installation",
       "Suitable for various heating applications"
     ],
-    // Missing catalog: add VIR-INSRT insertion EM catalog to /public/catalogs/ when ready
+    brochurePath: "/catalogs/VIR-800 ELECTRO MAGNETIC 26128 .pdf",
     faqs: []
   },
   // VSDs
@@ -294,7 +294,7 @@ export const products: Product[] = [
     title: navbarLabelMap["em-700"], // "Eco EM-700"
     subtitle: "VSD for Ventilation",
     category: ["vsd"],
-    image: "/images/VFD.jpg",
+    image: "/images/EM700.png",
     description: "The Eco EM-700 Variable Speed Drive is designed specifically for ventilation applications. This VSD provides efficient motor control for ventilation systems, optimizing energy consumption while maintaining optimal air flow.",
     keyFeatures: [
       "Designed for ventilation applications",
@@ -302,6 +302,7 @@ export const products: Product[] = [
       "Optimized air flow management",
       "Reduced energy consumption"
     ],
+    brochurePath: "/catalogs/EM700 Ventilation Inverter.pdf",
     faqs: []
   },
   {
@@ -317,6 +318,7 @@ export const products: Product[] = [
       "Reliable and efficient operation",
       "Optimized for HVAC applications"
     ],
+    brochurePath: "/catalogs/EM750  HVAC Basic Inverter.pdf",
     faqs: []
   },
   {
@@ -354,7 +356,8 @@ export const products: Product[] = [
         question: "What is the DC reactor specification?",
         answer: "The EM 760 series comes equipped with a built-in 5% Impedance DC reactor that helps in reducing harmonic distortion, improving the overall power quality."
       }
-    ]
+    ],
+    brochurePath: "/catalogs/EM760 HVAC Advanced Inverter.pdf"
   },
   // IAQ Sensors
   {
@@ -370,6 +373,7 @@ export const products: Product[] = [
       "Advanced sensor technology",
       "Flexible sensor options"
     ],
+    brochurePath: "/catalogs/VIR-IAQ- IAQ SENSORS.pdf",
     faqs: []
   }
 ];

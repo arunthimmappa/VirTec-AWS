@@ -173,6 +173,19 @@ export default function Footer() {
           </div>
         </motion.div>
 
+        {/* Disclaimer */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.15 }}
+          className="mb-4"
+        >
+          <p className="text-slate-400 text-xs text-center leading-relaxed max-w-4xl mx-auto">
+            All logos, trademarks, brand names and related imagery on Virtec.us are the exclusive property of their respective owners. They are displayed solely for product reference, technical illustration, or informational purposes in the context of HVAC solutions like flow meters, VFDs, and IAQ sensors. Virtec.us claims no ownership, endorsement, or affiliation— we fully respect all intellectual property rights.
+          </p>
+        </motion.div>
+
         {/* Bottom Bar */}
         <motion.div
           initial={{ opacity: 0 }}

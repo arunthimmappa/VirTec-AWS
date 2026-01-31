@@ -56,7 +56,7 @@ export default function SolutionsSection() {
           className="mb-6 sm:mb-8 md:mb-10 lg:mb-12 xl:mb-16"
         >
           <h2 className="font-display text-2xl sm:text-2xl md:text-3xl lg:text-3xl xl:text-4xl 2xl:text-5xl text-slate-900 mb-3 sm:mb-4">
-            Our Solutions
+            Our <span className="text-primary-yellow">Solutions</span>
           </h2>
           <p className="text-xs sm:text-xs md:text-sm lg:text-sm xl:text-base 2xl:text-lg text-slate-700 max-w-3xl">
             We have a wide range of products and services for our clients that focus on:

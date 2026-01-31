@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SolutionDetailPage from "@/components/solution-components/SolutionDetailPage";
 import { getSolutionBySlug, getAllSolutionSlugs } from "@/lib/solutions";
+import { generateBaseMetadata, generateBreadcrumbSchema, generateServiceSchema } from "@/lib/seo";
 
 interface PageParams {
   slug: string;
@@ -27,13 +28,19 @@ export async function generateMetadata({
 
   const url = `/solutions/${slug}`;
 
-  return {
+  return generateBaseMetadata({
     title: `${solution.title} - ${solution.subtitle} | Virtec`,
     description: solution.description,
-    alternates: {
-      canonical: url,
-    },
-  };
+    path: url,
+    keywords: [
+      solution.title,
+      solution.subtitle,
+      ...(solution.applications || []),
+      "Virtec solutions",
+      "energy management",
+      "flow measurement solutions",
+    ],
+  });
 }
 
 export async function generateStaticParams() {
@@ -55,11 +62,57 @@ export default async function SolutionPage({
     return notFound();
   }
 
+  // Build Service Schema for SEO
+  const serviceSchema = generateServiceSchema({
+    name: `${solution.title} - ${solution.subtitle}`,
+    description: solution.description,
+  });
+
+  // Build Breadcrumb Schema
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: "Home", url: "/" },
+    { name: "Solutions", url: "/solutions" },
+    { name: solution.title, url: `/solutions/${slug}` },
+  ]);
+
+  // Build FAQ Schema if available
+  const faqSchema = solution.faqs && solution.faqs.length > 0 ? {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: solution.faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
+    })),
+  } : null;
+
   return (
-    <div className="relative min-h-screen bg-white pt-24 sm:pt-28 lg:pt-32">
-      <Navbar />
-      <SolutionDetailPage solution={solution} />
-      <Footer />
-    </div>
+    <>
+      {/* Inject Service Schema for SEO */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
+      {/* Inject Breadcrumb Schema for SEO */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      {/* Inject FAQ Schema for SEO */}
+      {faqSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+      )}
+      <div className="relative min-h-screen bg-white pt-24 sm:pt-28 lg:pt-32">
+        <Navbar />
+        <SolutionDetailPage solution={solution} />
+        <Footer />
+      </div>
+    </>
   );
 }

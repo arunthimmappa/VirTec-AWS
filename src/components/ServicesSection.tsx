@@ -5,7 +5,7 @@ import { Quote } from "lucide-react";
 
 export default function ServicesSection() {
   return (
-    <section id="services" className="relative py-12 sm:py-16 md:py-12 lg:py-20 xl:py-24 2xl:py-28 bg-white">
+    <section id="services" className="relative py-12 sm:py-16 md:py-12 lg:py-20 xl:py-24 2xl:py-28 bg-slate-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 lg:gap-12 xl:gap-16">
           {/* Left Column - Heading */}
@@ -44,10 +44,6 @@ export default function ServicesSection() {
 
             <p>
               We provide the pre-sales visit to our clients to give them a demonstration of all the products, aiming for the client-satisfaction as our first priority.
-            </p>
-
-            <p>
-              Virtec has manufactured products that will take care of your energy and HVAC requirements while ensuring safety for the environment. Some of such pioneering products that have been widely appreciated by our customers include Ultrasonic Heat Meters, Ultrasonic Electronic Flow Meter - Water, Electromagnetic Flow Meters, and Clamp-On Heat Meters (Compact, E3-Compact, E5-Compact).
             </p>
 
             {/* Quote Section */}

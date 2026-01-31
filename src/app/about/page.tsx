@@ -7,15 +7,35 @@ import VisionMissionSection from "@/components/about-components/VisionMissionSec
 import CertificationsSection from "@/components/about-components/CertificationsSection";
 import PartnersMarketsSection from "@/components/about-components/PartnersMarketsSection";
 import TeamSection from "@/components/about-components/TeamSection";
+import { generateBaseMetadata, generateBreadcrumbSchema } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "About Us | Virtec",
+export const metadata: Metadata = generateBaseMetadata({
+  title: "About Us | Virtec Instruments Inc.",
   description: "Learn about Virtec Instruments Inc., a global leader in Heat and Flow Management Solutions for HVAC and Water applications. Discover our vision, mission, and commitment to excellence.",
-};
+  path: "/about",
+  keywords: [
+    "Virtec Instruments",
+    "about Virtec",
+    "flow meter manufacturer",
+    "heat meter company",
+    "HVAC solutions provider",
+    "water measurement solutions",
+  ],
+});
 
 export default function AboutPage() {
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: "Home", url: "/" },
+    { name: "About Us", url: "/about" },
+  ]);
+
   return (
-    <div className="relative min-h-screen bg-white">
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <div className="relative min-h-screen bg-white">
       <Navbar />
       <AboutHero />
       <CompanyStorySection />
@@ -24,6 +44,7 @@ export default function AboutPage() {
       <PartnersMarketsSection />
       <TeamSection />
       <Footer />
-    </div>
+      </div>
+    </>
   );
 }
