@@ -5,7 +5,7 @@ import { Quote } from "lucide-react";
 
 export default function ServicesSection() {
   return (
-    <section id="services" className="relative py-12 sm:py-16 md:py-12 lg:py-20 xl:py-24 2xl:py-28 bg-slate-50">
+    <section id="services" className="relative py-12 sm:py-16 md:py-12 lg:py-20 xl:py-24 2xl:py-28 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 lg:gap-12 xl:gap-16">
           {/* Left Column - Heading */}
@@ -18,7 +18,7 @@ export default function ServicesSection() {
             <h2 className="font-display text-2xl sm:text-2xl md:text-3xl lg:text-3xl xl:text-4xl 2xl:text-5xl text-slate-900 mb-4 sm:mb-6 md:mb-8">
               Customer-Driven
               <br />
-              <span className="text-primary-yellow">Services</span>
+              <span className="text-slate-900">Services</span>
             </h2>
           </motion.div>
 

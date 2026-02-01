@@ -559,8 +559,10 @@ export default function Navbar() {
                 <div key={item.label} className="rounded-2xl border border-slate-200">
                   <button
                     type="button"
-                    className="flex w-full items-center justify-between px-4 py-3 text-left text-sm sm:text-base font-semibold text-slate-800 min-h-[44px]"
-                    onClick={() => {
+                    className="flex w-full items-center justify-between px-4 py-3 text-left text-sm sm:text-base font-semibold text-slate-800 min-h-[44px] cursor-pointer touch-manipulation"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
                       setExpanded((current) => {
                         const newExpanded = current === item.label ? null : item.label;
                         if (newExpanded !== item.label) {
@@ -571,9 +573,9 @@ export default function Navbar() {
                     }}
                     aria-expanded={expanded === item.label}
                   >
-                    {item.label}
+                    <span className="flex-1">{item.label}</span>
                     <span
-                      className={`transition ${expanded === item.label ? "rotate-180" : ""}`}
+                      className={`transition flex-shrink-0 pointer-events-none ${expanded === item.label ? "rotate-180" : ""}`}
                     >
                       {chevron}
                     </span>
@@ -582,36 +584,45 @@ export default function Navbar() {
                     <div className="space-y-2 px-3 sm:px-4 pb-3 sm:pb-4">
                       {item.categories.map((category) => (
                         <div key={category.label} className="rounded-xl border border-slate-100 bg-slate-50 overflow-hidden">
-                          <div className="flex items-center justify-between">
-                            {/* Category label - non-clickable section header */}
-                            <div className="flex-1 block px-3 py-2.5 cursor-default">
-                              <div className="text-sm font-semibold text-slate-900">
-                                {category.label}
+                          {category.products && category.products.length > 0 ? (
+                            <button
+                              type="button"
+                              onClick={(e) => {
+                                e.preventDefault();
+                                e.stopPropagation();
+                                setExpandedCategory(
+                                  expandedCategory === category.label ? null : category.label
+                                );
+                              }}
+                              className="flex w-full items-center justify-between px-3 py-2.5 cursor-pointer touch-manipulation"
+                              aria-expanded={expandedCategory === category.label}
+                            >
+                              <div className="flex-1 text-left">
+                                <div className="text-sm font-semibold text-slate-900">
+                                  {category.label}
+                                </div>
+                                <div className="mt-1 text-xs text-slate-600">
+                                  {category.description}
+                                </div>
                               </div>
-                              <div className="mt-1 text-xs text-slate-600">
-                                {category.description}
+                              <span
+                                className={`transition flex-shrink-0 pointer-events-none ${expandedCategory === category.label ? "rotate-180" : ""}`}
+                              >
+                                {chevron}
+                              </span>
+                            </button>
+                          ) : (
+                            <div className="flex items-center justify-between px-3 py-2.5">
+                              <div className="flex-1">
+                                <div className="text-sm font-semibold text-slate-900">
+                                  {category.label}
+                                </div>
+                                <div className="mt-1 text-xs text-slate-600">
+                                  {category.description}
+                                </div>
                               </div>
                             </div>
-                            {category.products && category.products.length > 0 && (
-                              <button
-                                type="button"
-                                onClick={(e) => {
-                                  e.preventDefault();
-                                  setExpandedCategory(
-                                    expandedCategory === category.label ? null : category.label
-                                  );
-                                }}
-                                className="px-3 py-2.5 flex-shrink-0"
-                                aria-expanded={expandedCategory === category.label}
-                              >
-                                <span
-                                  className={`transition ${expandedCategory === category.label ? "rotate-180" : ""}`}
-                                >
-                                  {chevron}
-                                </span>
-                              </button>
-                            )}
-                          </div>
+                          )}
                           {category.products && expandedCategory === category.label && (
                             <div className="px-3 pb-2 space-y-1.5 border-t border-slate-200 pt-2">
                               {category.products.map((product) => (

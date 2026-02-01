@@ -140,9 +140,6 @@ export default function ProductDetailPage({ product }: ProductDetailPageProps) {
           {/* Download Brochure Section */}
           <div className="bg-gradient-to-r from-primary-yellow/10 to-primary-yellow/5 p-4 sm:p-6 md:p-8 lg:p-10 xl:p-12 text-center">
             <div className="max-w-2xl mx-auto space-y-4 sm:space-y-6">
-              <h2 className="text-lg sm:text-xl md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl font-display font-bold text-slate-900">
-                Download Brochure
-              </h2>
               <p className="text-xs sm:text-xs md:text-sm lg:text-sm xl:text-base 2xl:text-lg text-slate-700">
                 Get detailed technical specifications and information about this product.
               </p>
